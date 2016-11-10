@@ -69,9 +69,6 @@
     <ClInclude Include="scalar_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="libsecp256k1-config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="field_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -99,6 +96,42 @@
     <ClInclude Include="modules\recovery\main_impl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="basic-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="field_5x52.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="field_5x52_asm_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="field_5x52_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="field_5x52_int128_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="num_gmp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="num_gmp_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scalar_4x64.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scalar_4x64_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libsecp256k1-config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\lax_der_parsing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\lax_der_privatekey_parsing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="secp256k1.c">
@@ -110,11 +143,11 @@
     <ClCompile Include="Secp256k1.NET.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="COPYING" />
+    <ClCompile Include="contrib\lax_der_parsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\lax_der_privatekey_parsing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

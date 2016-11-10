@@ -44,5 +44,8 @@ namespace Secp256k1
 
         public delegate byte[] NormalizeSignatureDelegate(byte[] signature, out bool wasAlreadyNormalized);
         public static NormalizeSignatureDelegate NormalizeSignature = (NormalizeSignatureDelegate)Delegate.CreateDelegate(typeof(NormalizeSignatureDelegate), SignaturesType.GetRuntimeMethod("NormalizeSignature", new Type[] { typeof(byte[]), typeof(bool).MakeByRefType() }));
+
+        public delegate byte[] SignatureParseDerLaxDelegate(byte[] signature, out bool valid);
+        public static SignatureParseDerLaxDelegate SignatureParseDerLax = (SignatureParseDerLaxDelegate)Delegate.CreateDelegate(typeof(SignatureParseDerLaxDelegate), SignaturesType.GetRuntimeMethod("SignatureParseDerLax", new Type[] { typeof(byte[]), typeof(bool).MakeByRefType() }));
     }
 }

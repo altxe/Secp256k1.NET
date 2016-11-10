@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="basic-config.h" />
+    <ClInclude Include="contrib\lax_der_parsing.h" />
+    <ClInclude Include="contrib\lax_der_privatekey_parsing.h" />
     <ClInclude Include="ecdsa.h" />
     <ClInclude Include="ecdsa_impl.h" />
     <ClInclude Include="eckey.h" />
@@ -32,6 +35,10 @@
     <ClInclude Include="field.h" />
     <ClInclude Include="field_10x26.h" />
     <ClInclude Include="field_10x26_impl.h" />
+    <ClInclude Include="field_5x52.h" />
+    <ClInclude Include="field_5x52_asm_impl.h" />
+    <ClInclude Include="field_5x52_impl.h" />
+    <ClInclude Include="field_5x52_int128_impl.h" />
     <ClInclude Include="field_impl.h" />
     <ClInclude Include="group.h" />
     <ClInclude Include="group_impl.h" />
@@ -41,8 +48,12 @@
     <ClInclude Include="libsecp256k1-config.h" />
     <ClInclude Include="modules\recovery\main_impl.h" />
     <ClInclude Include="num.h" />
+    <ClInclude Include="num_gmp.h" />
+    <ClInclude Include="num_gmp_impl.h" />
     <ClInclude Include="num_impl.h" />
     <ClInclude Include="scalar.h" />
+    <ClInclude Include="scalar_4x64.h" />
+    <ClInclude Include="scalar_4x64_impl.h" />
     <ClInclude Include="scalar_8x32.h" />
     <ClInclude Include="scalar_8x32_impl.h" />
     <ClInclude Include="scalar_impl.h" />
@@ -50,14 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="contrib\lax_der_parsing.c" />
+    <ClCompile Include="contrib\lax_der_privatekey_parsing.c" />
     <ClCompile Include="Secp256k1.NET.cpp" />
     <ClCompile Include="secp256k1.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="README.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="COPYING" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0E3071CF-137F-4414-A58E-20F230548254}</ProjectGuid>

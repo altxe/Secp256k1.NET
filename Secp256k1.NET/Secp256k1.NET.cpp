@@ -1,5 +1,6 @@
 #include "include/secp256k1.h"
 #include "include/secp256k1_recovery.h"
+#include "contrib/lax_der_parsing.h"
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -226,6 +227,27 @@ namespace Secp256k1
 			if (wasAlreadyNormalized)
 				return signature;
 			return SerializeSignature(&normalized);
+		}
+
+		/** This function is taken from the libsecp256k1 distribution and implements
+		*  DER parsing for ECDSA signatures, while supporting an arbitrary subset of
+		*  format violations.
+		*
+		*  Supported violations include negative integers, excessive padding, garbage
+		*  at the end, and overly long length descriptors. This is safe to use in
+		*  Bitcoin because since the activation of BIP66, signatures are verified to be
+		*  strict DER before being passed to this module, and we know it supports all
+		*  violations present in the blockchain before that point.
+		*/
+		static array<Byte> ^SignatureParseDerLax(array<Byte> ^signature, [Out] bool %valid) {
+			secp256k1_ecdsa_signature sig;
+			pin_ptr<Byte> signatureptr = &signature[0];
+			
+			int result = ecdsa_signature_parse_der_lax(Context, &sig, signatureptr, signature->Length);
+			
+			valid = result == 1;
+
+			return SerializeSignature(&sig);
 		}
 	};
 };
