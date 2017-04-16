@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 
 namespace Secp256k1
@@ -12,13 +13,15 @@ namespace Secp256k1
             {
                 if (signaturesType == null)
                 {
-                    Assembly a = Assembly.LoadFrom("Secp256k1." + (IntPtr.Size == 4 ? "x86" : "x64") + ".dll");
-                    var ver = a.GetName().Version;
+                    var assemblyName = "Secp256k1." + (IntPtr.Size == 4 ? "x86" : "x64") + ".dll";
+                    var assemblyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, assemblyName);
+                    Assembly assembly = Assembly.LoadFrom(assemblyPath);
+                    var ver = assembly.GetName().Version;
                     if (ver.Major < 1)
                         return null;
                     if (ver.Major == 1 && ver.Minor < 1)
                         return null;
-                    signaturesType = a.GetType("Secp256k1.Signatures");
+                    signaturesType = assembly.GetType("Secp256k1.Signatures");
                 }
                 return signaturesType;
             }
