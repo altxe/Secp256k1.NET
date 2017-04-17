@@ -56,14 +56,6 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
-copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -71,4 +63,9 @@ copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(Proje
   <Target Name="AfterBuild">
   </Target>
   -->
+
+  <Target Name="AfterResolveReferences">
+    <Exec Command="copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
+copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll" />
+  </Target>
 </Project>
