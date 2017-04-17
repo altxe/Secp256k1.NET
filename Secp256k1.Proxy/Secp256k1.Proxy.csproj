@@ -57,15 +57,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>
-if "$(ConfigurationName)" == "Debug" (
-  xcopy /Y/C $(ProjectDir)\..\Build\Debug\Win32\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x86.dll
-  xcopy /Y/C $(ProjectDir)\..\Build\Debug\x64\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x64.dll 
-)
-if "$(ConfigurationName)" == "Release" (
-  xcopy /Y/C $(ProjectDir)\..\Build\Release\Win32\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x86.dll
-  xcopy /Y/C $(ProjectDir)\..\Build\Release\x64\Secp256k1.NET.DLL $(ProjectDir)\Secp256k1.x64.dll
-)</PreBuildEvent>
+    <PreBuildEvent>xcopy /Y/C $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
+xcopy /Y/C $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
