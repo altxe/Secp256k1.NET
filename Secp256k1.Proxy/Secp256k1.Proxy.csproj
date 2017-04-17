@@ -57,8 +57,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy /Y/C $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
-xcopy /Y/C $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll</PreBuildEvent>
+    <PreBuildEvent>copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
+copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
