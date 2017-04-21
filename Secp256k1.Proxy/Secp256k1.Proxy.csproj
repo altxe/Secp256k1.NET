@@ -26,12 +26,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,9 +64,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
   <Target Name="AfterResolveReferences">
-    <Exec Command="copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll
-copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll" />
+    <Exec Command="copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\Win32\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x86.dll&#xD;&#xA;copy /Y $(ProjectDir)..\Build\$(ConfigurationName)\x64\Secp256k1.NET.DLL $(ProjectDir)Secp256k1.x64.dll" />
   </Target>
 </Project>
